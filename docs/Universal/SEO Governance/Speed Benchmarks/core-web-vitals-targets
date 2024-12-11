@@ -1,0 +1,53 @@
+
+# Core Web Vitals & Performance Scores
+
+**Priority**: Medium
+
+## Overview
+Core Web Vitals are a set of user-centric performance metrics defined by Google to measure key aspects of user experience, including load performance, interactivity, and visual stability. Meeting Google's benchmarks for these metrics is critical for ensuring a good user experience and improving a page's ranking in search results.
+
+## Core Web Vitals Metrics
+
+- **Largest Contentful Paint (LCP)**: Measures loading performance.
+  - **Good**: ≤ 2.5 seconds
+  - **Needs Improvement**: 2.5 - 4.0 seconds
+  - **Poor**: > 4.0 seconds
+
+- **Cumulative Layout Shift (CLS)**: Measures visual stability.
+  - **Good**: ≤ 0.1
+  - **Needs Improvement**: 0.1 - 0.25
+  - **Poor**: > 0.25
+
+- **Interaction to Next Paint (INP)**: Measures responsiveness.
+  - **Good**: ≤ 200ms
+  - **Needs Improvement**: 200 - 500ms
+  - **Poor**: > 500ms
+
+- **Total Blocking Time (TBT)**: Measures the time during which the page is blocked and unresponsive.
+  - **Good**: ≤ 200 milliseconds
+  - **Needs Improvement**: 200 - 600 milliseconds
+  - **Poor**: > 600 milliseconds
+
+- **New Interaction to Next Paint (NIP)**: Captures responsiveness by focusing on the single longest interaction.
+  - **Good**: ≤ 300ms
+  - **Needs Improvement**: 300 - 600ms
+  - **Poor**: > 600ms
+
+## Best Practices
+
+- **Optimise Page Load Time**: Reduce the time it takes for the largest content element to load to improve LCP.
+- **Minimise Layout Shifts**: Ensure that elements do not move unexpectedly during page load to keep CLS low.
+- **Enhance Responsiveness**: Minimise input latency to keep INP within the 'Good' range.
+- **Reduce JavaScript Blocking**: Optimise and defer JavaScript to minimise TBT.
+
+## Example Metrics Analysis
+
+- **LCP Example**: A hero image takes 1.8 seconds to load, which is within the 'Good' threshold.
+- **CLS Example**: Unexpected changes in ad placement result in a CLS of 0.3, which requires improvement.
+- **INP Example**: Button interaction takes 250ms, which falls in the 'Needs Improvement' category.
+
+## Crawler Accessibility
+Meeting Core Web Vitals benchmarks ensures a website is accessible to search engines and provides a positive user experience, resulting in better rankings and visibility.
+
+## SEO Impact
+Google uses Core Web Vitals as a ranking factor, making their optimisation crucial for SEO. Improving these metrics can lead to better user retention, higher engagement, and ultimately improved search engine rankings.

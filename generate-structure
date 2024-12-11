@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Function to recursively list folders and markdown files
+list_folders_and_files() {
+    local dir="$1"
+    local indent="$2"
+
+    # List directories and files
+    for item in "$dir"/*; do
+        if [ -d "$item" ]; then
+            # Print folder name with indentation
+            echo "${indent}- $(basename "$item")/"
+            # Recurse into the subdirectory, increasing indentation
+            list_folders_and_files "$item" "$indent    "
+        
+        elif [[ "$item" == *.md || "$item" == *.mdx ]]; then
+            # Print markdown file with indentation
+            echo "${indent}  - $(basename "$item")"
+        fi
+    done
+}
+
+# Start listing from the current directory with no initial indentation
+list_folders_and_files "." ""
