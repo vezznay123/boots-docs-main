@@ -45,7 +45,7 @@ Article components should provide clear, contextual information to enhance user 
 - If the article is reviewed by a subject matter expert or editor, display their name, role, and credentials.  
 - Provide a hyperlink to the reviewer’s profile or biography page for credibility.  
 
-### Article Tags Navigation 
+### Article Tags Navigation (Pill Design)  
 - Display article tags in a **pill design** beneath the article content.  
 - Each tag should act as a hyperlink, taking users to the respective tag’s article page.  
 - Use clear, distinct styling for the pills (e.g., rounded borders, muted background colours).  
@@ -64,12 +64,12 @@ Article components should provide clear, contextual information to enhance user 
   - A hyperlink to the related article page.  
 - Ensure carousel navigation is smooth and user-friendly (e.g., arrow controls or swipe functionality).  
 
-### Product Feed Integration (If relevant - defined in CMS)  
+### Product Feed Integration (If Relevant)  
 - Allow integration of **product feeds** within articles for content related to specific products.  
 - Ensure the product feed dynamically pulls data such as product title, image, price, and description.  
 - Support filtering of products based on tags, categories, or article context.  
 
-### Product Card Integration (If relevant - defined in CMS)
+### Product Card Integration (If Relevant)  
 - Integrate **product cards** within the article body for seamless inline product promotion.  
 - Each product card should include:  
   - Product image (responsive and optimised).  
@@ -126,9 +126,14 @@ Where possible, support these elements with structured data for enhanced search 
     "availability": "https://schema.org/InStock"
   }
 }
-
 ```  
+
+---
+
 ## Best Practices  
+
+### Accuracy  
+- Ensure all displayed dates (publish and last reviewed) are current and correct.  
 
 ### Clarity  
 - Use clear, consistent layouts for metadata, hero images, and article components.  
@@ -141,6 +146,19 @@ Where possible, support these elements with structured data for enhanced search 
 
 ### Carousel Optimisation  
 - Use lazy loading for images and limit the number of items displayed initially.  
+
+---
+
+## Benefits  
+
+### Enhanced User Experience  
+- Visual enhancements like hero images, article outlines, and carousels improve content discovery and engagement.  
+
+### Credibility  
+- Author bios, images, and product integration add authority, transparency, and relevance.  
+
+### Engagement  
+- Structured data, dynamic navigation elements, and related content increase session duration and user satisfaction.  
 
 ---
 
