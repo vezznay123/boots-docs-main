@@ -45,7 +45,7 @@ Article components should provide clear, contextual information to enhance user 
 - If the article is reviewed by a subject matter expert or editor, display their name, role, and credentials.  
 - Provide a hyperlink to the reviewer’s profile or biography page for credibility.  
 
-### Article Tags Navigation (Pill Design)  
+### Article Tags Navigation 
 - Display article tags in a **pill design** beneath the article content.  
 - Each tag should act as a hyperlink, taking users to the respective tag’s article page.  
 - Use clear, distinct styling for the pills (e.g., rounded borders, muted background colours).  
@@ -64,12 +64,12 @@ Article components should provide clear, contextual information to enhance user 
   - A hyperlink to the related article page.  
 - Ensure carousel navigation is smooth and user-friendly (e.g., arrow controls or swipe functionality).  
 
-### Product Feed Integration (If Relevant)  
+### Product Feed Integration (If relevant - defined in CMS)  
 - Allow integration of **product feeds** within articles for content related to specific products.  
 - Ensure the product feed dynamically pulls data such as product title, image, price, and description.  
 - Support filtering of products based on tags, categories, or article context.  
 
-### Product Card Integration (If Relevant)  
+### Product Card Integration (If relevant - defined in CMS)
 - Integrate **product cards** within the article body for seamless inline product promotion.  
 - Each product card should include:  
   - Product image (responsive and optimised).  
