@@ -1,4 +1,4 @@
-# Article Information
+# article Information
 
 **Priority:** Medium  
 
