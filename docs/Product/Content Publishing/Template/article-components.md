@@ -1,6 +1,6 @@
 # article components
 
-**Priority:** High
+**Priority:** Medium  
 
 ## Overview  
 Article components should provide clear, contextual information to enhance user experience. In addition to the existing items—estimated read time, original publish date, last reviewed date, and author bio—ensure that the article page includes:  
@@ -9,8 +9,17 @@ Article components should provide clear, contextual information to enhance user 
 - Display of both the publish date and the most recent review date.  
 - A navigational element to the article tags page using a **pill design**.  
 - A **horizontal carousel** at the bottom of the article linking to related article content.  
+- Dedicated **hero image space** for visual impact at the top of the article.  
+- Comprehensive **article outline/index** to improve content navigation.  
+- Integration of **product feeds** and **product cards**, if relevant to the article content.  
 
 ## Implementation Requirements  
+
+### Hero Image Space  
+- Reserve prominent space at the top of the article page for a **hero image**.  
+- Ensure the hero image is optimised for fast loading (`loading="lazy"`) and responsive across devices.  
+- Add descriptive **alt text** for accessibility and SEO purposes.  
+- Include optional image captions beneath the hero image for additional context.  
 
 ### Read Time  
 - Calculate and display the estimated reading time based on word count or characters.  
@@ -25,17 +34,27 @@ Article components should provide clear, contextual information to enhance user 
 - Place this information close to the publish date for clarity.  
 
 ### Author Bio and Profile Link  
-- Include a brief author bio beneath the article or in a dedicated author section.  
-- Provide a hyperlink to the author’s full profile page, allowing readers to learn more about the author’s credentials, expertise, and other published works.  
+- Include a dedicated **author bio section** beneath the article.  
+- Author bio should include:  
+  - **Author Picture**: Use a circular image style for visual appeal.  
+  - **Name and Credentials**: Display author’s name, role, and expertise.  
+  - **Profile Link**: Provide a hyperlink to the author’s full profile page.  
+- Include social media links or related content links authored by the same person.  
 
 ### Reviewer Reference and Bio Link (If Applicable)  
-- If the article is reviewed by a subject matter expert or editor, display their name and role.  
-- Provide a hyperlink to the reviewer’s profile or biography page to establish credibility and transparency.  
+- If the article is reviewed by a subject matter expert or editor, display their name, role, and credentials.  
+- Provide a hyperlink to the reviewer’s profile or biography page for credibility.  
 
 ### Article Tags Navigation (Pill Design)  
 - Display article tags in a **pill design** beneath the article content.  
 - Each tag should act as a hyperlink, taking users to the respective tag’s article page.  
 - Use clear, distinct styling for the pills (e.g., rounded borders, muted background colours).  
+
+### Article Outline/Index  
+- Generate an **article outline** (TOC) dynamically based on heading tags (`<h2>`, `<h3>`).  
+- Place the index near the top of the article for easy navigation.  
+- Use anchor links to allow users to jump to specific sections.  
+- Style the outline as a collapsible component for mobile optimisation.  
 
 ### Related Article Carousel  
 - Add a **horizontal carousel** at the bottom of the article to display related articles.  
@@ -45,53 +64,69 @@ Article components should provide clear, contextual information to enhance user 
   - A hyperlink to the related article page.  
 - Ensure carousel navigation is smooth and user-friendly (e.g., arrow controls or swipe functionality).  
 
+### Product Feed Integration (If Relevant)  
+- Allow integration of **product feeds** within articles for content related to specific products.  
+- Ensure the product feed dynamically pulls data such as product title, image, price, and description.  
+- Support filtering of products based on tags, categories, or article context.  
+
+### Product Card Integration (If Relevant)  
+- Integrate **product cards** within the article body for seamless inline product promotion.  
+- Each product card should include:  
+  - Product image (responsive and optimised).  
+  - Product name and brief description.  
+  - Price and availability.  
+  - A **Call-to-Action (CTA)** button (e.g., “Buy Now” or “Learn More”) linking to the product page.  
+
+### Heading Tag Usage  
+- Use semantic and logical heading tags to structure the article content:  
+  - `<h1>`: Main article title (single instance).  
+  - `<h2>`: Section titles.  
+  - `<h3>`: Subsections and subtopics.  
+  - `<h4>`: Additional subheadings or clarifications.  
+- Ensure consistent spacing and styling to maintain readability.  
+
 ### Structured Data (Schema.org Markup)  
-Where possible, support these elements with structured data for enhanced search visibility and richer search results. For instance:  
+Where possible, support these elements with structured data for enhanced search visibility and richer search results.  
 
-Use the **Article schema** to mark up the main article content.  
-Include author as a structured data property:  
+**Hero Image**: Include as part of the `Article` schema:  
+```json
+"image": {
+  "@type": "ImageObject",
+  "url": "https://example.com/hero-image.jpg",
+  "width": 1200,
+  "height": 628
+}
+```  
 
+**Author and Reviewer Data**:  
 ```json
 "author": {
   "@type": "Person",
   "name": "Author Name",
   "url": "https://example.com/authors/author-name"
-}
-```
-
-Include reviewedBy (using Review or Person as appropriate) to reference the reviewer:  
-
-```json
+},
 "reviewedBy": {
   "@type": "Person",
   "name": "Reviewer Name",
   "url": "https://example.com/reviewers/reviewer-name"
 }
-```
-
-Include navigation elements and related articles in structured data using `BreadcrumbList` and `relatedLink` schemas:  
-
-```json
-"relatedLink": [
-  {
-    "@type": "Article",
-    "headline": "Related Article Title",
-    "url": "https://example.com/articles/related-article-1"
-  },
-  {
-    "@type": "Article",
-    "headline": "Another Related Article",
-    "url": "https://example.com/articles/related-article-2"
-  }
-]
 ```  
 
-Use datePublished and dateModified for publish and last reviewed dates:  
-
+**Product Data (If Applicable)**:  
 ```json
-"datePublished": "2023-01-15",
-"dateModified": "2023-06-10"
-```
+"product": {
+  "@type": "Product",
+  "name": "Product Name",
+  "image": "https://example.com/product-image.jpg",
+  "description": "Product description.",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "GBP",
+    "price": "19.99",
+    "availability": "https://schema.org/InStock"
+  }
+}
+```  
 
 ---
 
@@ -101,28 +136,31 @@ Use datePublished and dateModified for publish and last reviewed dates:
 - Ensure all displayed dates (publish and last reviewed) are current and correct.  
 
 ### Clarity  
-- Locate all these elements in a consistent and clear layout on the page.  
+- Use clear, consistent layouts for metadata, hero images, and article components.  
+
+### Mobile Optimisation  
+- Optimise all components (hero images, carousels, product cards, and outlines) for smaller screens.  
 
 ### Regular Updates  
-- Review and update author and reviewer bios periodically to maintain accuracy.  
+- Review and update author/reviewer bios and associated images periodically.  
 
 ### Carousel Optimisation  
-- Use lazy loading for images and limit the number of articles displayed initially to avoid performance issues.  
+- Use lazy loading for images and limit the number of items displayed initially.  
 
 ---
 
 ## Benefits  
 
 ### Enhanced User Experience  
-- Clear metadata, tags navigation, and related content carousels improve content discovery and engagement.  
+- Visual enhancements like hero images, article outlines, and carousels improve content discovery and engagement.  
 
 ### Credibility  
-- Linking to author and reviewer profiles adds transparency and authority.  
+- Author bios, images, and product integration add authority, transparency, and relevance.  
 
 ### Engagement  
-- Structured data and visual enhancements encourage exploration of related content, improving session duration.  
+- Structured data, dynamic navigation elements, and related content increase session duration and user satisfaction.  
 
 ---
 
 ## Conclusion  
-By including a hyperlink to the author’s profile, a reviewer reference and link to their bio, navigational tags using pill design, and a related article carousel, the article page will provide greater clarity, trust, and engagement for the user. Implementing structured data further supports discoverability and ensures that search engines and readers alike fully understand the article’s credibility and currency.
+By including a hero image, structured author/reviewer bios, article outlines, navigational tags, related article carousels, and product integrations, the article page becomes a comprehensive and engaging hub. These enhancements improve usability, content discoverability, and overall SEO performance while building credibility and increasing user engagement.
