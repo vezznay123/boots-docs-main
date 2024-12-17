@@ -1,6 +1,6 @@
 # article components
 
-**Priority:** Medium  
+**Priority:** High
 
 ## Overview  
 Article components should provide clear, contextual information to enhance user experience. In addition to the existing items—estimated read time, original publish date, last reviewed date, and author bio—ensure that the article page includes:  
