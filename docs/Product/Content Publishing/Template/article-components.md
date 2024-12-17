@@ -1,4 +1,4 @@
-# article Information
+# article components
 
 **Priority:** Medium  
 
@@ -7,6 +7,8 @@ Article components should provide clear, contextual information to enhance user 
 - A hyperlink to the author’s profile page.  
 - A reference to the reviewer (if applicable), including a hyperlink to their profile or bio.  
 - Display of both the publish date and the most recent review date.  
+- A navigational element to the article tags page using a **pill design**.  
+- A **horizontal carousel** at the bottom of the article linking to related article content.  
 
 ## Implementation Requirements  
 
@@ -29,6 +31,19 @@ Article components should provide clear, contextual information to enhance user 
 ### Reviewer Reference and Bio Link (If Applicable)  
 - If the article is reviewed by a subject matter expert or editor, display their name and role.  
 - Provide a hyperlink to the reviewer’s profile or biography page to establish credibility and transparency.  
+
+### Article Tags Navigation (Pill Design)  
+- Display article tags in a **pill design** beneath the article content.  
+- Each tag should act as a hyperlink, taking users to the respective tag’s article page.  
+- Use clear, distinct styling for the pills (e.g., rounded borders, muted background colours).  
+
+### Related Article Carousel  
+- Add a **horizontal carousel** at the bottom of the article to display related articles.  
+- Include the following in each related article card:  
+  - Thumbnail image (use `loading="lazy"` for optimisation).  
+  - Title and a short excerpt or estimated reading time.  
+  - A hyperlink to the related article page.  
+- Ensure carousel navigation is smooth and user-friendly (e.g., arrow controls or swipe functionality).  
 
 ### Structured Data (Schema.org Markup)  
 Where possible, support these elements with structured data for enhanced search visibility and richer search results. For instance:  
@@ -54,6 +69,23 @@ Include reviewedBy (using Review or Person as appropriate) to reference the revi
 }
 ```
 
+Include navigation elements and related articles in structured data using `BreadcrumbList` and `relatedLink` schemas:  
+
+```json
+"relatedLink": [
+  {
+    "@type": "Article",
+    "headline": "Related Article Title",
+    "url": "https://example.com/articles/related-article-1"
+  },
+  {
+    "@type": "Article",
+    "headline": "Another Related Article",
+    "url": "https://example.com/articles/related-article-2"
+  }
+]
+```  
+
 Use datePublished and dateModified for publish and last reviewed dates:  
 
 ```json
@@ -74,20 +106,23 @@ Use datePublished and dateModified for publish and last reviewed dates:
 ### Regular Updates  
 - Review and update author and reviewer bios periodically to maintain accuracy.  
 
+### Carousel Optimisation  
+- Use lazy loading for images and limit the number of articles displayed initially to avoid performance issues.  
+
 ---
 
 ## Benefits  
 
 ### Enhanced User Experience  
-- Clear metadata and author/reviewer references build trust.  
+- Clear metadata, tags navigation, and related content carousels improve content discovery and engagement.  
 
 ### Credibility  
 - Linking to author and reviewer profiles adds transparency and authority.  
 
 ### Engagement  
-- Structured data may improve search engine visibility, potentially increasing readership.  
+- Structured data and visual enhancements encourage exploration of related content, improving session duration.  
 
 ---
 
 ## Conclusion  
-By including a hyperlink to the author’s profile, a reviewer reference and link to their bio, and prominently displaying publish and last review dates, the article page will provide greater clarity, trust, and engagement for the user. Implementing structured data further supports discoverability and ensures that search engines and readers alike fully understand the article’s credibility and currency.
+By including a hyperlink to the author’s profile, a reviewer reference and link to their bio, navigational tags using pill design, and a related article carousel, the article page will provide greater clarity, trust, and engagement for the user. Implementing structured data further supports discoverability and ensures that search engines and readers alike fully understand the article’s credibility and currency.
